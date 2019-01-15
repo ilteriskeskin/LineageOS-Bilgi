@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+  
+{% block body %}
+
+<h3>
+    LineageOS Destekleyen Telefonlar
+</h3>
+
+{% for f in file %}
+    <ol>
+        <li>
+            {{ f }}
+        </li>
+    </ol>
+{% endfor %}
+
+{% endblock body %}o
