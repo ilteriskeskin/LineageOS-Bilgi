@@ -2,7 +2,7 @@ import os
 import yaml
 
 print("Dosyaların güncelliği kontrol denetleniyor...")
-# os.system("git pull https://github.com/LineageOS/lineage_wiki.git")
+os.system("git pull https://github.com/LineageOS/lineage_wiki.git")
 
 print("Telefonların listesini barındıran dosya oluşturuluyor...")
 os.system("ls lineage_wiki/_data/devices/ > lineage_wiki/_data/devices/output.txt")
