@@ -2,16 +2,37 @@
   
 {% block body %}
 
+
 <h3>
-    LineageOS Destekleyen Telefonlar
+    Karşılaştırma
 </h3>
 
-{% for f in file %}
-    <ol>
-        <li>
-            {{ f }}
-        </li>
-    </ol>
+<hr>
+
+<form action = "/benchmark" method = "POST">
+    <p>Model 1 Codename: <input type = "text" name = "model2" /></p>
+    <p>Model 2 Codename: <input type = "text" name = "model1" /></p>
+    <p><input type = "submit" value = "submit" /></p>
+ </form>
+
+ <br>
+ <hr>
+
+ <h3>
+    LineageOS Destekleyen Telefonlar
+ </h3>
+
+ <hr>
+
+{% for f in file_names %}
+    <h5>
+        {{ f.vendor }}
+        {{ f.name }} 
+        {{ f.codename }}
+        {{ f.ram }}     
+    </h5>
 {% endfor %}
+
+
 
 {% endblock body %}o
