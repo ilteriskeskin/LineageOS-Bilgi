@@ -13,7 +13,7 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/list')
+@app.route('/list/')
 def list():
     os.system("ls lineage_wiki/_data/devices/ > lineage_wiki/_data/devices/output.txt")
     file_names = []
@@ -23,7 +23,7 @@ def list():
         a = f.readline()
         file_names.append(a)
 
-    for i in range(len(file_names)):
+    for i in range(len(file_names)-1):
         file_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[i].rstrip()
         with open(file_path, "r") as stream:
             try:
@@ -34,7 +34,7 @@ def list():
                 print()
     return render_template('list.html', file_names = file_names)
 
-@app.route('/benchmark')
+@app.route('/benchmark/')
 def benchmark():
     os.system("ls lineage_wiki/_data/devices/ > lineage_wiki/_data/devices/output.txt")
     file_names = []
@@ -44,7 +44,7 @@ def benchmark():
         a = f.readline()
         file_names.append(a)
 
-    for i in range(len(file_names)):
+    for i in range(len(file_names)-1):
         file_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[i].rstrip()
         with open(file_path, "r") as stream:
             try:

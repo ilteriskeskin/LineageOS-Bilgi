@@ -17,9 +17,8 @@ for i in f:
     a = f.readline()
     file_names.append(a)
 
-for i in range(len(file_names)):
+for i in range(len(file_names)-1):
     file_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[i].rstrip()
-    
     with open(file_path, "r") as stream:
         try:
             file = yaml.load(stream, Loader=yaml.FullLoader)
@@ -30,22 +29,23 @@ for i in range(len(file_names)):
 phone1 = int(input("RAM miktarlarını karşılaştırmak istediğin 1. telefonun numarasını gir: "))
 phone2 = int(input("RAM miktarlarını karşılaştırmak istediğin 2. telefonun numarasını gir: "))
 
-phone1_path = "/home/ilteriskeskin/Belgeler/Python/lineage_wiki/_data/devices/" + file_names[phone1 - 1].rstrip()
-phone2_path = "/home/ilteriskeskin/Belgeler/Python/lineage_wiki/_data/devices/" + file_names[phone2 - 1].rstrip()
+phone1_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[phone1 - 1].rstrip()
+phone2_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[phone2 - 1].rstrip()
 
 with open(phone1_path, "r") as stream1:
     try:
-        file1 = yaml.load(stream1)
-        ram1 = file["ram"]
+        file1 = yaml.load(stream1, Loader=yaml.FullLoader)
+        ram1 = file1["ram"]
     except:
         print()
 
 with open(phone2_path, "r") as stream2:
     try:
-        file2 = yaml.load(stream2)
-        ram2 = file["ram"]
+        file2 = yaml.load(stream2, Loader=yaml.FullLoader)
+        ram2 = file2["ram"]
     except:
         print()
+
 
 if int(ram1[0]) > int(ram2[0]):
     print("{}'in RAM miktari {}'dan fazla".format(phone1, phone2))
