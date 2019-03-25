@@ -1,7 +1,7 @@
 import os
 import yaml
 
-print("Dosyaların güncelliği kontrol denetleniyor...")
+print("Dosyaların güncelliği kontrol ediliyor...")
 os.system("git pull https://github.com/LineageOS/lineage_wiki.git")
 
 print("Telefonların listesini barındıran dosya oluşturuluyor...")
@@ -18,12 +18,11 @@ for i in f:
     file_names.append(a)
 
 for i in range(len(file_names)):
-
-    file_path = "/home/ilteriskeskin/Belgeler/Python/lineage_wiki/_data/devices/" + file_names[i].rstrip()
-
+    file_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[i].rstrip()
+    
     with open(file_path, "r") as stream:
         try:
-            file = yaml.load(stream)
+            file = yaml.load(stream, Loader=yaml.FullLoader)
             print(i + 1,file["vendor"], file["name"])
         except:
             print()
