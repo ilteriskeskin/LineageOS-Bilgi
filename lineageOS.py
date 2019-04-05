@@ -11,11 +11,14 @@ print("LineageOS Destekleyen Telefonlar: ")
 
 file_names = []
 
-f = open("lineage_wiki/_data/devices/output.txt")
+f = open("lineage_wiki/_data/devices/output.txt", "r")
 
 for i in f:
     a = f.readline()
+    print(i,a)
     file_names.append(a)
+
+f.close()
 
 for i in range(len(file_names)-1):
     file_path = "/home/ilteriskeskin/Belgeler/LineageOS-Bilgi/lineage_wiki/_data/devices/" + file_names[i].rstrip()
@@ -52,4 +55,4 @@ if int(ram1[0]) > int(ram2[0]):
 elif int(ram2[0]) > int(ram1[0]):
     print("{}'in RAM miktari {}'dan fazla".format(phone2, phone1))
 else:
-    print("Bok!")
+    print("Modellerin RAM miktarları eşit.")

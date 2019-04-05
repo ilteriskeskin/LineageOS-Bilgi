@@ -7,15 +7,22 @@
     Karşılaştırma
 </h3>
 
+<b>
+    Mevcut sistemde telefonlar yalnızca RAM miktarlarına göre kıyaslanır.
+</b>
+
 <hr>
 
+{{ form.csrf_token }}
 <form action = "/benchmark" method = "POST">
-    <p>Model 1 Codename: <input type = "text" name = "model2" /></p>
-    <p>Model 2 Codename: <input type = "text" name = "model1" /></p>
-    <p><input type = "submit" value = "submit" /></p>
+    {{ form.phone1 }}
+    <br>
+    {{ form.phone2 }}
+    <p><input type = "submit" value = "Karşılaştır" /></p>
  </form>
 
  <br>
+{% include "includes/messages.html" %}
  <hr>
 
  <h3>
@@ -27,8 +34,7 @@
 {% for f in file_names %}
     <h5>
         {{ f.vendor }}
-        {{ f.name }} 
-        {{ f.codename }}
+        {{ f.name }}
         {{ f.ram }}     
     </h5>
 {% endfor %}

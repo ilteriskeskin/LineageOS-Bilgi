@@ -10,8 +10,9 @@
 
 {% for f in file_names %}
     <h5>
+        {{ loop.index }}
         {{ f.vendor }}
-        {{ f.name }}       
+        {{ f.name }}    
     </h5>
 {% endfor %}
 
